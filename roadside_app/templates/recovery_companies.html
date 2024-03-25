@@ -1,0 +1,23 @@
+{% extends "home.html" %}
+
+{% block content %}
+
+<div class="headings">
+    <h1>TMH Company Details</h1>
+
+<!-- In the body of the HTML page add this and continue adding all Fields. I have provided three example below -->
+    
+<ul class="list-group">
+    {% for x in companies %}
+    <a class="list-group-item list-group-item-action" href="{% url 'company_details' x.id %}">
+        {{x.company_name}} |
+        {{x.city}} |
+        {{x.mobile_number}} 
+                
+    </a> 
+              
+    {% endfor %}
+</ul>     
+
+
+{% endblock %}

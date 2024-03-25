@@ -1,0 +1,163 @@
+
+
+.sub-container{
+    margin: 0 auto;
+    width: 350px;
+    padding: 25px;
+    text-align: center;
+            
+}
+
+.subscribe-button{
+    background-color: #c71a1a;
+    padding: 15px;
+    color:#ffffff;
+    border-radius: 5px;
+}
+
+.subscribe-button-green{
+    background-color: #5ea05c;
+    font-weight: bold;
+    color:#ffffff;
+    padding: 1vh;
+    border-radius: 15px;
+}
+
+.profile-container{
+    padding: 1%;
+    background: #ffffff;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.5in;
+    height: 2in;
+    border-radius: 20px;
+    box-shadow: 0 6px 12px rgba(30,10,58,.04);
+}
+.profile-container-pic{
+    margin-left: 10px;
+}
+.profile-container-pic img{
+    border-radius: 25px;
+    width:100px; 
+    height:100px
+}
+.profile-details{
+    width: 200px;
+    height:150px;
+    margin: 0 auto;
+}
+.profile-details hr{
+    border: 0;
+    height: 1px;
+    background:#ccc;
+    margin: 15px 0 10px;
+}
+
+.mobile{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: max-content;
+    margin-top: 5px;
+}
+
+.mobile img {
+ margin-right: 5px;
+}
+
+
+.email{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: max-content;
+    margin-top: 5px;
+}
+
+.email img {
+    margin-right: 5px;
+   }
+
+   .home{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: max-content;
+    margin-top: 5px;
+}
+
+.home img {
+    margin-right: 5px;
+   }
+
+
+.profile-form {
+    width: 4.5in;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: antiquewhite;
+    z-index: 10px;
+    margin-bottom: 50px;
+}
+.profile-form label {
+    display: block;
+    margin-bottom: 10px;
+    color: black;
+}
+.profile-form input[type="text"], .profile-form input[type="email"], .profile-form input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.profile-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+.profile-form button {
+    padding: 10px 15px;
+    background-color: #79aee6;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.profile-form button:hover {
+    background-color: #68a6e9;
+}
+
+.latlon_label {
+    margin: 10px auto;
+    width: 75%;
+    background-color: #b47a7a;
+    padding: 10px;
+    color:#000000;
+    border-radius: 5px;
+}
+
+.geo_lat_button {
+    text-align: center;
+    margin: 10px auto ;
+    height: 1rem;  
+    gap: 10px;        
+}
+
+.geo_find_lat{
+    background-color: #04AA6D; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}

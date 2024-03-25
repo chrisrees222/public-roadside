@@ -1,0 +1,24 @@
+{% extends "home.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{%static 'css/profile.css' %}">
+
+<div class="profile-form">
+    
+    <div class="headings">
+        <h1>Profile Settings</h1>
+
+        <a href="{%url 'change_password'%}" class="profile-sub-menu-link">
+        <p>Change Password</p> 
+        </a>
+
+        <a href="{%url 'delete_profile'%}" class="profile-sub-menu-link">
+        <p>Delete Profile</p> 
+        </a>
+    </div>
+</div>
+
+
+{% endblock content %}

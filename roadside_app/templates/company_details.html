@@ -1,0 +1,26 @@
+{% extends "home.html" %}
+
+{% block content %}
+
+<div class="headings">
+    <h1>TMH - {{companydetail.company_name}}</h1>
+
+    <ul class="list-group">
+        <li class="list-group-item">
+            Summary: {{companydetail.profile_summary}}            
+        </li>  
+        <li class="list-group-item">
+            Contact: {{companydetail.mobile_number}}            
+        </li>
+        <li class="list-group-item">
+            Post Code:  {{companydetail.postcode}}            
+        </li>
+        <li class="list-group-item">
+            City/Town: {{companydetail.city}}            
+        </li>
+        
+    </ul>
+     
+
+ 
+{% endblock %}

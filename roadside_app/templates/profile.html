@@ -1,0 +1,114 @@
+{% extends 'home.html' %}
+{% load static %}
+
+<script src="https://js.stripe.com/v3/"></script>
+<script src="{% static 'script.js' %}"></script>
+
+{% block content %}
+<script src="https://js.stripe.com/v3/"></script>
+<link rel="stylesheet" href="{%static 'css/profile.css' %}">
+
+
+<div class="profile-page">
+    <div class="profile-container">
+        <div class="profile-container-pic">
+            {% if request.user.profile.profile_image %}
+            <img src="{% static 'images/user_icon.png' %}" alt="Profile Image">
+            {% else %}
+            <img src="{% static 'images/user_icon.png' %}" alt="Default Image">
+            {% endif %}
+        </div>
+        <div class="profile-details">
+            <h3>{{ request.user.profile.full_name }}</h3>
+            <h5>{{ request.user.profile.company_name }}</h5>
+            <hr>
+            <div class="text">
+                <div class="mobile">
+                    <img src="{% static 'images/phone.png' %}" alt="">
+                    <h5>{{ request.user.profile.mobile_number }}</h5>
+                </div>
+
+                <div class="email">
+                    <img src="{% static 'images/email.png' %}" alt="">
+                    <h5>{{ request.user.email }}</h5>
+                </div>
+
+                <div class="home">
+                    <img src="{% static 'images/house.png' %}" alt="">
+                    <h5>{{ request.user.profile.summary }}, {{ request.user.profile.city }},
+                        {{request.user.profile.postcode }}</h5>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="profile-form">
+    <!-- For when stripe is activated, if payed, highlights green and marks on map. views updated with locations.
+    <div class="sub-container">
+        <a id='if-part' style='visibility: hidden;' class="subscribe-button-green"> {{days_left}} days left till end of activation! </a>
+        <a id='else-part' style='visibility: hidden' href="{% url 'select_payment' %}" class="subscribe-button">Subscribe here to activate location!</a>
+    </div>
+    
+        
+    <script>
+        var days_data = '{{days_left|escapejs}}';        
+        var node;
+        if(days_data > 0) {
+            node = document.getElementById('if-part');
+        }
+        else {
+            node = document.getElementById('else-part');
+        }
+        node.style.visibility = 'visible';
+    </script>
+
+    -->
+        
+    <form action="#" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <label for="company">Company Name:</label>
+        <input type="text" id="company" name="company" value="{{ form_data.company }}" required>
+
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" value="{{ form_data.name }}" required>
+
+        <label for="mobile_no">Mobile Number:</label>
+        <input type="text" id="mobile_no" name="mobile_no" value="{{ form_data.mobile_no }}" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{ form_data.email }}" required>
+
+        <label for="profile_summary">Profile Summary:</label>
+        <textarea id="profile_summary" name="profile_summary" rows="4"
+            required>{{ form_data.profile_summary }}</textarea>
+
+        <label for="city">City / Town:</label>
+        <input type="text" id="city" name="city" value="{{ form_data.city }}" required>
+    
+        <div class="latlon_label">
+            <p>Enter postcode below. Then double click on the "show lat lon!" button to display your coordinates:</p>        
+        </div>
+
+        <label for="postcode">Postcode:</label>
+        <input type="text" id="postcode" name="postcode" value="{{ form_data.postcode }}" required>
+
+        <div class="geo_lat_button">
+            <button class="geo_find_lat" onclick="storeLatLongModel()" type="button" id="submitbutton">Show Lat Lon! </button>            
+        </div>
+        
+        <label for="latitude">Latitude:</label>
+        <input type="text" id="latitude" name="latitude" value="{{ form_data.latitude }}" required>
+
+        <label for="longitude">Longitude:</label>
+        <input type="text" id="longitude" name="longitude" value="{{ form_data.longitude }}" required>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+
+
+{% endblock content %}

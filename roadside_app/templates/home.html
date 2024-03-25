@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Home</title>
+    <link rel="stylesheet" href="{%static 'css/home.css' %}">    
+</head>
+<body>
+    <div class="header">
+        <div class="caption">
+            <p class="display-2">On The Road To Recovery!</p> 
+                           
+        </div>
+        <div class="background-img">
+            
+            <span>                                                
+            <nav>
+                <img src="{%static 'images/TMH-logo.png'%}" alt="" class="logo">
+                <ul class="a">
+                    <li><a href="{%url 'home-page'%}">Home</a></li>
+                    <!--<li><a class="menu-shorts" href="{%url 'recoverycompanies'%}">Recovery Companies</a></li> -->                
+                    <li><a href="{%url 'about'%}">About</a></li>
+                    <li><a href="{%url 'contactus'%}">Contact Us</a></li>
+                </ul>
+                {% if user.is_authenticated %}
+                {% if request.user.profile.profile_image %}
+                <img src="{% static 'images/user_icon.png' %}" alt="Default Image" class="profile-user-pic"
+                    onclick="toggleMenu()">
+                {% else %}
+                <img src="{% static 'images/user_icon.png' %}" alt="Default Image" class="profile-user-pic"
+                    onclick="toggleMenu()">
+                {% endif %}
+                <div class="profile-sub-menu-wrap" id="profile-subMenu">
+                    <div class="profile-sub-menu">
+                        <div class="profile-user-info">
+                            {% if request.user.profile.profile_image %}
+                            <img src="{% static 'images/user_icon.png' %}" alt="Default Image">
+                            {% else %}
+                            <img src="{% static 'images/user_icon.png' %}" alt="Default Image">
+                            {% endif %}
+                            <h3>{{ request.user.profile.full_name }}</h3>
+                            <h5>{{ request.user.profile.company }}</h5>
+                        </div>
+                        
+                        <a href="{%url 'user-profile'%}" class="profile-sub-menu-link">
+                            <img src="{% static 'images/profile.png' %}">
+                            </img>
+                            <p>Edit Profile</p>
+                        </a>
+
+                        <a href="{%url 'profile_settings'%}" class="profile-sub-menu-link">
+                            <img src="{% static 'images/setting.png' %}">
+                            </img>
+                            <p>Setting & Privacy</p> 
+                        </a>
+
+                        <a href="" class="profile-sub-menu-link">
+                            <img src="{% static 'images/help.png' %}">
+                            </img>
+                            <p>Help & Support</p>
+
+                        </a>
+
+                        <a href="{%url 'logout'%}" class="profile-sub-menu-link">
+                            <img src="{% static 'images/logout.png' %}">
+                            </img>
+                            <p>Logout</p>
+                        </a>
+                    </div>
+                </div>
+                
+                {% else %}
+                    <div class="register-login-menu">
+                        <a href="{% url 'login' %}" class="menu-link">Login</a>
+                        <span class="menu-separator">|</span>
+                        <a href="{% url 'register' %}" class="menu-link">Register</a>
+                    </div>
+                {% endif %}
+            </nav>
+            
+            </span>
+        </div>
+               
+        {% block content %}
+        
+        <div class="headings">
+            <h1>Welcome to TMH</h1>
+            <p>
+                We are a service provider connecting motorists to a recovery operator to get you home.
+            </p>
+            <p>
+                Simply press the Find Me! button or enter post code to view recoveries in your area.
+            </p>
+        </div>
+        
+
+        <div class="locators">
+
+            <div class="geo_setting_1">
+                <button onclick="pay_ment()">Find me!</button> 
+            </div> 
+            <div class="geo_setting_1"> 
+                <p id="get_coords">
+                <input class="but-input" type="text" id="input" placeholder="Enter postcode" autocapitalize="off" /></p>
+            </div>
+            <div class="geo_setting_1">
+                <button onclick="f()" type="button" id="submitbutton">Show postcode! </button>            
+            </div> 
+        </div>   
+        
+    
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+        <div id="weathermap" class="map" style="margin-bottom: 45px;"></div>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    </div>   
+        {% endblock %}
+     
+    
+    <script>
+        function getMap(latitude, longitude)  {
+            document.getElementById('weathermap').innerHTML = "<div id='map' style='height: 500px'></div>";
+            var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            osmAttribution = 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a>',
+            osmLayer = new L.TileLayer(osmUrl, {maxZoom: 18, attribution: osmAttribution});
+            var map = new L.Map('map');
+            map.setView(new L.LatLng(latitude, longitude), 11.5);
+            map.addLayer(osmLayer);
+
+             
+            // Creating a marker
+            var circle2 = L.circleMarker([latitude, longitude]).bindPopup("your selected location!");    
+            // Adding marker to the map
+            circle2.addTo(map);
+            circle2.setStyle({color: 'red', radius:25});
+
+            var raw_data = '{{locations|escapejs}}';
+            var data = JSON.parse(raw_data);
+            new L.geoJSON(data,{onEachFeature: onEachFeature}).addTo(map);     
+        }
+
+        //create layer for the bindpopup on map.
+        function onEachFeature(feature, layer) {
+            // does this feature have a property named popupContent?
+            if (feature.properties && feature.properties.name) {
+                layer.bindPopup("Company Name : " + feature.properties.name + "<br>"
+                + "<br>" 
+                + 'Contact Number: ' + '<a href="tel:' + feature.properties.number + '">' + feature.properties.number + '</a>' + "<br>"
+                + "<br>"
+                + "Info : " + feature.properties.summary);
+                }
+        }
+            
+    </script>    
+    <script src="{% static 'js/script.js' %}"></script>
+    <footer>
+        <div style="background-color: white; position: fixed; bottom: 0; width: 100%;">
+            <p style="color: blue; padding: 2px;">Author: christian Rees<br>
+            <a href="https://keltz.dev">keltz.dev</a></p>
+        </div>        
+    </footer>
+</body>
+</html>

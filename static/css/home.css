@@ -1,0 +1,334 @@
+@charset "UTF-8";
+/*!
+ * Bootstrap v4.6.0 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors
+ * Copyright 2011-2021 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+
+@import url("https://use.typekit.net/abj6ial.css");
+:root {
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Popins', sans-serif;
+}
+
+.list-group {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    border-radius: 0.25rem;
+    width: 50%;
+    margin:0 auto;
+  }
+  
+  .list-group-item-action {
+    width: 100%;
+    color: #495057;
+    text-align: inherit;
+  }
+  .list-group-item-action:hover, .list-group-item-action:focus {
+    z-index: 1;
+    color: #495057;
+    text-decoration: none;
+    background-color: #f8f9fa;
+  }
+  .list-group-item-action:active {
+    color: #212529;
+    background-color: #e9ecef;
+  }
+  
+  .list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+  }
+  .list-group-item:first-child {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+  }
+  .list-group-item:last-child {
+    border-bottom-right-radius: inherit;
+    border-bottom-left-radius: inherit;
+  }
+  .list-group-item.disabled, .list-group-item:disabled {
+    color: #6c757d;
+    pointer-events: none;
+    background-color: #fff;
+  }
+  .list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  .list-group-item + .list-group-item {
+    border-top-width: 0;
+  }
+  .list-group-item + .list-group-item.active {
+    margin-top: -1px;
+    border-top-width: 1px;
+  }
+
+.caption {
+    position: absolute;
+    top: 11vh;
+    margin:auto;
+    z-index: 99;
+}
+
+ul a{
+    font-size: 3vw;
+}
+
+.display-2 {
+    display: block;
+    margin: 10px;
+    font-family: "Elevon", Arial;
+    color: #fff;
+    font-size: 5vw;
+    font-weight: normal;
+  }
+
+.headings {
+    font-size: 2vw;
+    color: black;
+    text-align: center;
+    background: #aeb7c0;
+    box-shadow: 2px 2px 20px 23px #2e57db;
+    width: 95%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    top: 5px;
+    padding: 10px;
+}
+
+.locators {
+    font-size: 2vw;
+    color: black;
+    text-align: center;
+    background: #aeb7c0;
+    box-shadow: 2px 2px 20px 23px #2e57db;
+    width: 95%;
+    margin: auto;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    top: 5px;
+    padding: 10px;    
+}
+
+.geo_setting_1 {
+    text-align: center;
+    margin: 5px auto ;      
+    border-radius: 10px;       
+}
+
+.but-input{
+    width: 8rem;
+    border-radius: 5px;
+}
+
+.heading-menu {
+    font-size: 2vw;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+.header {
+    width: 100%;
+    min-height: 100vh;
+    background: rgba(189, 197, 240, 0.795);
+    color: #000000;
+} 
+
+.background-img {
+    background-image: url("/static/images/traffic_one.jpg");
+    top: 0;
+    bottom: 0;
+    max-width: 100%;
+    height: 12rem;
+    background-size:100% auto;    
+    background-repeat: no-repeat;
+    padding:0;
+}
+
+#map {
+    width: 90%;
+    height: 600px;
+    margin: auto;
+    border: 4px solid #2f3cf1;
+    padding: 5px;
+    z-index: 400;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1%;
+    background: rgba(35, 57, 184, 0.575);
+    position: fixed;
+    top: 0;
+}
+
+.logo {
+    width: 8vw;
+    height: 3vh;
+    border-radius: 5px;
+}
+
+.profile-user-pic {
+    width: 8vw;
+    height: 6vh;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 30px;
+}
+
+
+.geo_setting_2 {
+    margin: auto;
+    width: 40%;
+    padding: 10px;
+}
+
+nav ul {
+    width: 100%;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.profile-sub-menu-wrap {
+    position: absolute;
+    top: 100%;
+    right: 2%;                                                       
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    z-index: 1000;
+    transition: max-height 0.5s;
+}
+
+.profile-sub-menu-wrap.open-menu {
+    position: absolute;
+    max-height: 400px;
+    z-index: 1000;
+}
+
+.profile-sub-menu {
+    background: #081ddd;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.profile-user-info {
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: white;
+}
+
+.profile-user-info h3 {
+    font-weight: 500;
+}
+
+.profile-user-info h5 {
+    font-weight: 500;
+    top: 65%;
+    position: absolute;
+    left: 29%;
+}
+
+.profile-user-info img {
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.profile-sub-menu hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 15px 0 10px;
+}
+
+.profile-sub-menu-link img {
+    width: 24px;
+    height: 24px;
+    background-color: #e5e5e5;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.profile-sub-menu-link {
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+}
+
+.profile-sub-menu-link p {
+    width: 100%;
+}
+
+.register-login-menu {
+    display: flex;
+    align-items: center;
+    background-color: rgb(19, 27, 133);  
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: #fff;  
+    font-size: 2vw;
+    font-weight: bold;    
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+.menu-link:hover {
+    background-color: #365a9c;  
+    color: #fff;
+}
+
+.menu-separator {
+    margin: 0 5px;
+    color: #fff;
+}
+
+.container{
+    background-color: #081ddd;
+    color: white;
+}
+
+.row-down{
+    background-color: #081ddd;
+    color: white;
+}

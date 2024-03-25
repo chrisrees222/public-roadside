@@ -1,0 +1,44 @@
+{% extends "home.html" %}
+{% load static %}
+
+<script src="https://js.stripe.com/v3/"></script>
+<script src="{% static 'script.js' %}"></script>
+
+{% block content %}
+<script src="https://js.stripe.com/v3/"></script>
+
+<link rel="stylesheet" href="{%static 'css/select.css' %}">
+
+<div id="skills">
+    <h2>select payment cover.</h2>
+    {% csrf_token %}
+    
+    <div class="all_skills">
+
+      <div class="skill">
+        <!--<img src="html_finalprojimages/python.png"/> -->
+        <h6>£15</h6>
+        <p>For 1 Month activation.</p>
+        <button type="button" id="thirtySubmit"> Check out. </button>         
+      </div>
+
+      <div class="skill">
+        <!--<img src="html_finalprojimages/python.png"/> -->
+        <h6>£25</h6>
+        <p>For 2 Month's activation.</p>
+        <button type="button" id="sixtySubmit"> Check out. </button>
+      </div>
+
+      <div class="skill">
+        <!--<img src="html_finalprojimages/python.png"/> -->
+        <h6>£30</h6>
+        <p>For 3 Month's activation.</p>
+        <button type="button" id="ninetySubmit"> Check out. </button>
+      </div>
+
+    </div>
+  </div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends "home.html" %}
+
+{% block content %}
+
+<div class="headings">
+    <h1>Profile Settings</h1>
+
+<!-- In the body of the HTML page add this and continue adding all Fields. I have provided three example below -->
+<h3>Delete Profile</h3>
+    <p>Are you sure you want to delete your account?</p>
+    <p>All data will be deleted and lost forever.</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Yes, delete my account">
+    </form>
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+/* Skills */
+
+.all_skills {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+  }
+  
+  .skill {
+    border: 1px solid rgb(0, 0, 0);
+    display: block;
+    border-radius: 6px;
+    text-align: center;
+    margin: 50px auto;
+    padding: 10px;
+    width: 3.5in;
+    font-size: 20px;
+    box-shadow: 0 3px 10px rgb(61, 61, 61);
+    background-color: antiquewhite;
+    
+  }
+  
+  .skill img {
+    height: 50px;
+    align-items: center;
+  }
+  
+  .skills h6 {
+    font-size: 50px;
+    margin-block-start: 8px;
+    margin-block-end: 5px;
+    font-weight: 900;
+    color: black;
+    text-justify: auto;
+  } 
+  
+  .skills p {
+    align-items: center;
+    font-size: 15px;
+    color: gray;
+    margin-block-start: 5px;
+    margin-block-end: 5px;
+  } 
+  
+  .flex_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  

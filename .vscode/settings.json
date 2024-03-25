@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/e25382cc-fd57-4fac-b041-2aecd9c4fe78/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/Road-Side-Recovery-Project",
+    "appService.deploySubpath": "."
+}
